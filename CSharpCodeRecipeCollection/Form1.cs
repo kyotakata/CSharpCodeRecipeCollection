@@ -88,5 +88,10 @@ namespace CSharpCodeRecipeCollection
             }
 
         }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            throw new Exception("えらーでした");
+        }
     }
 }
