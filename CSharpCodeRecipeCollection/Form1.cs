@@ -93,5 +93,158 @@ namespace CSharpCodeRecipeCollection
         {
             throw new Exception("えらーでした");
         }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            var s1 = new Stack<int>();
+            var data = new string[] { "一郎", "二郎", "三郎" };
+            var s2 = new Stack<string>(data);
+            foreach (var name in s2)
+            {
+                Console.WriteLine(name);
+            }
+
+            Console.WriteLine("sの要素数は{0}です", s2.Count);
+        }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            var s = new Stack<int>();
+            s.Push(1); //要素：1
+            s.Push(2); //要素：2, 1
+            s.Push(3); //要素：3, 2, 1
+
+            foreach (var i in s)
+            {
+                Console.WriteLine(i);
+            }
+        }
+
+        private void button9_Click(object sender, EventArgs e)
+        {
+            var s = new Stack<int>();
+            s.Push(1);
+            s.Push(2);
+            s.Push(3);
+
+            Console.WriteLine("先頭の要素は{0}です", s.Peek());
+
+            foreach (var i in s)
+            {
+                Console.WriteLine(i);
+            }
+        }
+
+        private void button10_Click(object sender, EventArgs e)
+        {
+            var s = new Stack<int>();
+            s.Push(1);
+            s.Push(2);
+            s.Push(3);
+
+            Console.WriteLine("先頭の要素は{0}です", s.Pop());
+
+            foreach (var i in s)
+            {
+                Console.WriteLine(i);
+            }
+        }
+
+        private void button11_Click(object sender, EventArgs e)
+        {
+            var s = new Stack<int>();
+            s.Push(1);
+            s.Push(2);
+            s.Push(3);
+
+
+            s.Clear(); //要素を削除
+
+            Console.WriteLine("sの要素数は{0}です", s.Count);
+            foreach (var i in s)
+            {
+                Console.WriteLine(i);
+            }
+        }
+
+        private void button12_Click(object sender, EventArgs e)
+        {
+            var s = new Stack<int>();
+            s.Push(1);
+            s.Push(2);
+            s.Push(3);
+
+            Console.WriteLine("sに2が含まれているか調べます.結果は{0}です.", s.Contains(2));
+            Console.WriteLine("sに4が含まれているか調べます.結果は{0}です.", s.Contains(4));
+        }
+
+        private void button13_Click(object sender, EventArgs e)
+        {
+            //何故かコンパイルエラー
+
+            //var s = new Stack<int>();
+
+            //Console.WriteLine("TryPeekを実行します.結果は{0},取得した値は{1}です", s.TryPeek(out int val1), val1);
+
+            //s.Push(1);
+            //s.Push(2);
+            //s.Push(3);
+
+            //Console.WriteLine("TryPeekを実行します.結果は{0},取得した値は{1}です", s.TryPeek(out int val2), val2);
+        }
+
+        private void button14_Click(object sender, EventArgs e)
+        {
+            //何故かコンパイルエラー
+
+            //var s = new Stack<int>();
+
+            //Console.WriteLine("TryPopを実行します.結果は{0},取得した値は{1}です", s.TryPop(out int val1), val1);
+
+            //s.Push(1);
+            //s.Push(2);
+            //s.Push(3);
+
+            //Console.WriteLine("TryPopを実行します.結果は{0},取得した値は{1}です", s.TryPop(out int val2), val2);
+
+            //foreach (var i in s)
+            //{
+            //    Console.WriteLine(i);
+            //}
+        }
+
+        private void button15_Click(object sender, EventArgs e)
+        {
+            var s = new Stack<int>();
+            s.Push(1);
+            s.Push(2);
+            s.Push(3);
+
+            int[] s_array = s.ToArray();
+
+            for(int i = 0; i < s_array.Length; i++)
+            {
+                Console.WriteLine(s_array[i]);
+            }
+        }
+
+        private void button16_Click(object sender, EventArgs e)
+        {
+            var s = new Stack<int>();
+            for(int i = 0; i < 5; i++)
+            {
+                s.Push(i);
+            }
+
+            var array = new int[10];
+            for(int i = 0; i < array.Length; i++)
+            {
+                array[i] = 10;
+            }
+
+            s.CopyTo(array, 3);
+
+            Console.WriteLine("[{0}]", string.Join(" ", array));
+        }
     }
 }

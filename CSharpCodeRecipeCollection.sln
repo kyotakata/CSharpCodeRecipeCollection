@@ -5,6 +5,8 @@ VisualStudioVersion = 17.4.33213.308
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSharpCodeRecipeCollection", "CSharpCodeRecipeCollection\CSharpCodeRecipeCollection.csproj", "{A6942A7B-9CBF-4222-8D89-AF879DEBE47D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EventSample", "EventSample\EventSample.csproj", "{FC40D576-2972-482E-86AF-28DCF2F9FB42}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{A6942A7B-9CBF-4222-8D89-AF879DEBE47D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A6942A7B-9CBF-4222-8D89-AF879DEBE47D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A6942A7B-9CBF-4222-8D89-AF879DEBE47D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FC40D576-2972-482E-86AF-28DCF2F9FB42}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FC40D576-2972-482E-86AF-28DCF2F9FB42}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FC40D576-2972-482E-86AF-28DCF2F9FB42}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FC40D576-2972-482E-86AF-28DCF2F9FB42}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
