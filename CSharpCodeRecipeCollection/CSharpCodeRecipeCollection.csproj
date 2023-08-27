@@ -71,10 +71,11 @@
     </Compile>
     <Compile Include="Generic\GenericsConstraint.cs" />
     <Compile Include="Generic\Pair.cs" />
-    <Compile Include="MonsterManager.cs" />
+    <Compile Include="Helper\CopyHelper.cs" />
+    <Compile Include="Helper\MonsterManager.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="WordsExtractor.cs" />
+    <Compile Include="Helper\WordsExtractor.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>

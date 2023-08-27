@@ -8,6 +8,7 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -245,6 +246,54 @@ namespace CSharpCodeRecipeCollection
             s.CopyTo(array, 3);
 
             Console.WriteLine("[{0}]", string.Join(" ", array));
+        }
+
+        private void button17_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button18_Click(object sender, EventArgs e)
+        {
+            var tel = new[] { "080-0000-0000aaa", "084-000-0000", "184-0000" };
+            var rgx = new Regex(@"\d{2,4}-\d{2,4}-\d{4}");
+            foreach (var t in tel)
+            {
+                Console.WriteLine(rgx.IsMatch(t) ? t : "アンマッチ");
+            }
+        }
+
+        private void button19_Click(object sender, EventArgs e)
+        {
+            var tel = new[] { "080-0000-0000aaa", "aaa084-000-0000", "184-0000" };
+            var rgx = new Regex(@"^\d{2,4}-\d{2,4}-\d{4}");
+            foreach (var t in tel)
+            {
+                Console.WriteLine(rgx.IsMatch(t) ? t : "アンマッチ");
+            }
+
+        }
+
+        private void button20_Click(object sender, EventArgs e)
+        {
+            var tel = new[] { "080-0000-0000aaa", "aaa084-000-0000", "184-0000" };
+            var rgx = new Regex(@"\d{2,4}-\d{2,4}-\d{4}$");
+            foreach (var t in tel)
+            {
+                Console.WriteLine(rgx.IsMatch(t) ? t : "アンマッチ");
+            }
+
+        }
+
+        private void button21_Click(object sender, EventArgs e)
+        {
+            var tel = new[] { "080-0000-0000aaa", "aaa084-000-0000", "aaa084-000-0000aaa", "084-000-0000", "184-0000" };
+            var rgx = new Regex(@"^\d{2,4}-\d{2,4}-\d{4}$");
+            foreach (var t in tel)
+            {
+                Console.WriteLine(rgx.IsMatch(t) ? t : "アンマッチ");
+            }
+
         }
     }
 }
