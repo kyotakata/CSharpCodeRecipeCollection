@@ -295,5 +295,108 @@ namespace CSharpCodeRecipeCollection
             }
 
         }
+
+        private void button22_Click(object sender, EventArgs e)
+        {
+            var str = "電話番号は、084-000-0000です。";
+            var rgx = new Regex(@"(\d{2,4})-(\d{2,4})-(\d{4})");
+            var match = rgx.Match(str);
+
+            if (match.Success)
+            {
+                Console.WriteLine($"位置:{match.Index} マッチ文字列:{match.Value}");
+
+                foreach (Group m in match.Groups)
+                {
+                    Console.WriteLine(m.Value);
+                }
+            }
+        }
+
+        private void button23_Click(object sender, EventArgs e)
+        {
+            var str = "自宅の電話番号は、084-000-0000です。携帯は、080-0000-0000です。";
+            var rgx = new Regex(@"\d{2,4}-\d{2,4}-\d{4}");
+            var result = rgx.Matches(str);
+            Console.WriteLine(result.Count);
+            if (result.Count != 0 && result[0].Success)
+            {
+                Console.WriteLine(result[0]);
+            }
+
+            foreach (Match m in result)
+            {
+                Console.WriteLine($"位置:{m.Index} マッチ文字列:{m.Value}");
+            }
+        }
+
+        private void button24_Click(object sender, EventArgs e)
+        {
+            var tags = "<p><strong>WINGS</strong>サイト<a href='index.html'><img src='wings.jpg'></img></a></p>";
+            var rgx = new Regex(@"<.+>");
+            var result = rgx.Matches(tags);
+
+            foreach (Match m in result)
+            {
+                Console.WriteLine(m.Value);
+            }
+        }
+
+        private void button25_Click(object sender, EventArgs e)
+        {
+            var tags = "<p><strong>WINGS</strong>サイト<a href='index.html'><img src='wings.jpg'></img></a></p>";
+            var rgx = new Regex(@"<.+?>");
+            var result = rgx.Matches(tags);
+
+            foreach (Match m in result)
+            {
+                Console.WriteLine(m.Value);
+            }
+
+        }
+
+        private void button26_Click(object sender, EventArgs e)
+        {
+            var str = "仕事用はwings@example.comです。プライベート用はYAMA@example.comです。";
+            var rgx = new Regex(@"[a-z0-9+_-]+@[a-z0-9-]+(\.[a-z]+)", RegexOptions.IgnoreCase);
+
+            var result = rgx.Matches(str);
+            foreach (Match m in result)
+            {
+                Console.WriteLine(m.Value);
+            }
+        }
+
+        private void button27_Click(object sender, EventArgs e)
+        {
+            var str = "10人のインディアン。\n1年生になったら";
+            var rgx = new Regex(@"^\d+", RegexOptions.Multiline);
+            var result = rgx.Matches(str);
+
+            foreach (Match m in result)
+            {
+                Console.WriteLine(m.Value);
+            }
+        }
+
+        private void button28_Click(object sender, EventArgs e)
+        {
+            var str = "初めまして。\nよろしくお願いします。";
+            var rgx = new Regex(@"^.+", RegexOptions.Singleline);
+            var result = rgx.Matches(str);
+
+            foreach (Match m in result)
+            {
+                Console.WriteLine(m.Value);
+            }
+        }
+
+        private void button29_Click(object sender, EventArgs e)
+        {
+            var str = "サポートサイトはhttp://www.wings.msn.to/です。";
+            var rgx = new Regex(@"http(s)?://([\w-]+\.)+[\w-]+(/[a-z_0-9-./?%&=]*)?", RegexOptions.IgnoreCase);
+
+            Console.WriteLine(rgx.Replace(str, "<a href='$0'>$0</a>"));
+        }
     }
 }
