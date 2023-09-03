@@ -57,6 +57,11 @@
             this.button27 = new System.Windows.Forms.Button();
             this.button28 = new System.Windows.Forms.Button();
             this.button29 = new System.Windows.Forms.Button();
+            this.button30 = new System.Windows.Forms.Button();
+            this.button31 = new System.Windows.Forms.Button();
+            this.button32 = new System.Windows.Forms.Button();
+            this.button33 = new System.Windows.Forms.Button();
+            this.button34 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // button1
@@ -349,11 +354,66 @@
             this.button29.UseVisualStyleBackColor = true;
             this.button29.Click += new System.EventHandler(this.button29_Click);
             // 
+            // button30
+            // 
+            this.button30.Location = new System.Drawing.Point(915, 36);
+            this.button30.Name = "button30";
+            this.button30.Size = new System.Drawing.Size(111, 23);
+            this.button30.TabIndex = 29;
+            this.button30.Text = "StreamWriter";
+            this.button30.UseVisualStyleBackColor = true;
+            this.button30.Click += new System.EventHandler(this.button30_Click);
+            // 
+            // button31
+            // 
+            this.button31.Location = new System.Drawing.Point(915, 65);
+            this.button31.Name = "button31";
+            this.button31.Size = new System.Drawing.Size(111, 23);
+            this.button31.TabIndex = 30;
+            this.button31.Text = "StreamReader";
+            this.button31.UseVisualStyleBackColor = true;
+            this.button31.Click += new System.EventHandler(this.button31_Click);
+            // 
+            // button32
+            // 
+            this.button32.Location = new System.Drawing.Point(915, 94);
+            this.button32.Name = "button32";
+            this.button32.Size = new System.Drawing.Size(179, 23);
+            this.button32.TabIndex = 31;
+            this.button32.Text = "StreamReader(ReadLine)";
+            this.button32.UseVisualStyleBackColor = true;
+            this.button32.Click += new System.EventHandler(this.button32_Click);
+            // 
+            // button33
+            // 
+            this.button33.Location = new System.Drawing.Point(915, 123);
+            this.button33.Name = "button33";
+            this.button33.Size = new System.Drawing.Size(68, 23);
+            this.button33.TabIndex = 32;
+            this.button33.Text = "FileInfo";
+            this.button33.UseVisualStyleBackColor = true;
+            this.button33.Click += new System.EventHandler(this.button33_Click);
+            // 
+            // button34
+            // 
+            this.button34.Location = new System.Drawing.Point(915, 152);
+            this.button34.Name = "button34";
+            this.button34.Size = new System.Drawing.Size(111, 23);
+            this.button34.TabIndex = 33;
+            this.button34.Text = "DirectoryInfo";
+            this.button34.UseVisualStyleBackColor = true;
+            this.button34.Click += new System.EventHandler(this.button34_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(895, 450);
+            this.ClientSize = new System.Drawing.Size(1123, 450);
+            this.Controls.Add(this.button34);
+            this.Controls.Add(this.button33);
+            this.Controls.Add(this.button32);
+            this.Controls.Add(this.button31);
+            this.Controls.Add(this.button30);
             this.Controls.Add(this.button29);
             this.Controls.Add(this.button28);
             this.Controls.Add(this.button27);
@@ -420,6 +480,11 @@
         private System.Windows.Forms.Button button27;
         private System.Windows.Forms.Button button28;
         private System.Windows.Forms.Button button29;
+        private System.Windows.Forms.Button button30;
+        private System.Windows.Forms.Button button31;
+        private System.Windows.Forms.Button button32;
+        private System.Windows.Forms.Button button33;
+        private System.Windows.Forms.Button button34;
     }
 }
 

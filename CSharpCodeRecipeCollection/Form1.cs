@@ -398,5 +398,100 @@ namespace CSharpCodeRecipeCollection
 
             Console.WriteLine(rgx.Replace(str, "<a href='$0'>$0</a>"));
         }
+
+        private void button30_Click(object sender, EventArgs e)
+        {
+            using (var writer = new StreamWriter(@"data.log", append: true, Encoding.GetEncoding("Shift-JIS")))
+            {
+                writer.WriteLine(DateTime.Now.ToString());
+            }
+        }
+
+        private void button31_Click(object sender, EventArgs e)
+        {
+            using (var reader = new StreamReader("data.log"))
+            {
+                Console.WriteLine(reader.ReadToEnd());
+            }
+        }
+
+        private void button32_Click(object sender, EventArgs e)
+        {
+            using (var reader = new StreamReader("data.log"))
+            {
+                while (!reader.EndOfStream)
+                {
+                    Console.WriteLine(reader.ReadLine());
+                }
+            }
+        }
+
+        private void button33_Click(object sender, EventArgs e)
+        {
+            // FileInfoオブジェクトを生成（引数はファイルのパス）
+            var file = new FileInfo(@"sample.txt");
+
+            // ファイルが存在するか
+            Console.WriteLine(file.Exists);
+            // ファイル名を取得
+            Console.WriteLine(file.Name);
+            // フォルダ名を取得
+            Console.WriteLine(file.DirectoryName);
+            // 読み取り専用か
+            Console.WriteLine(file.IsReadOnly);
+            // ファイルの最終アクセス日時、最終更新日時、サイズを取得
+            Console.WriteLine(file.LastAccessTime);
+            Console.WriteLine(file.LastWriteTime);
+            Console.WriteLine(file.Length);
+            
+            // ファイルをコピー
+            var file2 = file.CopyTo(@"sample_copy.txt", true);
+
+            // ファイルを移動
+            file2.MoveTo(@"SelfCSharp\sample_copy.txt");
+
+            // ファイル名を変更
+            file.MoveTo(@"SelfCSharp\sample_renamed.txt");
+
+            // ファイルを削除
+            file2.Delete();
+        }
+
+        private void button34_Click(object sender, EventArgs e)
+        {
+            var dir = new DirectoryInfo(@"C:\Users\kyota\source\repos\CSharpCodeRecipeCollection\CSharpCodeRecipeCollection\bin\Debug");
+
+            // フォルダが存在するか
+            Console.WriteLine(dir.Exists);
+            // フォルダの親フォルダを取得
+            Console.WriteLine(dir.Parent);
+            // フォルダのルート(根)を取得
+            Console.WriteLine(dir.Root);
+            // ファイルの作成日時、最終アクセス日時、最終更新日時
+            Console.WriteLine(dir.CreationTime);
+            Console.WriteLine(dir.LastAccessTime);
+            Console.WriteLine(dir.LastWriteTime);
+
+            // サブフォルダの一覧を取得
+            var dirs = dir.GetDirectories();
+            foreach ( var d in dirs )
+            {
+                Console.WriteLine(d.FullName);
+            }
+
+            // フォルダの作成
+            var dir2 = new DirectoryInfo(@"NewFolder");
+            dir2.Create();
+
+            // フォルダ名の変更
+            dir2.MoveTo(@"NewFolder2");
+
+            // フォルダの移動
+            dir2.MoveTo(@"C:\Users\kyota\source\repos\CSharpCodeRecipeCollection\CSharpCodeRecipeCollection\bin\NewFolder3");
+
+            dir2.CreateSubdirectory("sub");
+
+            dir2.Delete(true);
+        }
     }
 }
