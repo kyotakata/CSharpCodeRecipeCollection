@@ -493,5 +493,12 @@ namespace CSharpCodeRecipeCollection
 
             dir2.Delete(true);
         }
+
+        private void button35_Click(object sender, EventArgs e)
+        {
+            var f = new Form2();
+            f.Show();
+
+        }
     }
 }
