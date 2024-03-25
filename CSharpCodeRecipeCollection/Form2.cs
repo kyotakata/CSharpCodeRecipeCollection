@@ -56,20 +56,6 @@ namespace CSharpCodeRecipeCollection
             Console.WriteLine("{0:F99}", countD);
         }
 
-        private void button3_Click(object sender, EventArgs e)
-        {
-            CountUp(Single.Epsilon);
-        }
-
-
-        private void button4_Click(object sender, EventArgs e)
-        {
-            var fEps = EpsilonHelper.GetFloatEpsilon();
-            var dEps = EpsilonHelper.GetDoubleEpsilon();
-            CountUp(fEps);
-
-        }
-
         /// <summary>
         /// 0.1刻みで1.0までカウントする
         /// </summary>
@@ -90,6 +76,21 @@ namespace CSharpCodeRecipeCollection
                 }
             }
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            CountUp(Single.Epsilon);
+        }
+
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            var fEps = EpsilonHelper.GetFloatEpsilon();
+            var dEps = EpsilonHelper.GetDoubleEpsilon();
+            CountUp(fEps);
+
+        }
+
 
         private void button5_Click(object sender, EventArgs e)
         {
@@ -119,10 +120,66 @@ namespace CSharpCodeRecipeCollection
             }
         }
 
+
         private void button6_Click(object sender, EventArgs e)
         {
-            CountDown(1E-01f);
+            CountDown(Single.Epsilon);
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            // Stopwatchクラス生成
+            var sw = new System.Diagnostics.Stopwatch();
+
+            //-----------------
+            // 計測開始
+            sw.Start();
+
+            // ★処理A
+            var ans = Math.Pow(2, 100);
+            Console.WriteLine(ans);
+
+            // 計測停止
+            sw.Stop();
+
+
+            // 結果表示
+            Console.WriteLine("■処理Aにかかった時間");
+            TimeSpan ts = sw.Elapsed;
+            Console.WriteLine($"　{ts}");
+            Console.WriteLine($"　{ts.Hours}時間 {ts.Minutes}分 {ts.Seconds}秒 {ts.Milliseconds}ミリ秒");
+            Console.WriteLine($"　{sw.ElapsedMilliseconds}ミリ秒");
+
+            //-----------------
+            // 経過時間をリセットしてから計測開始
+            sw.Restart();
+
+            // ★処理B
+            Console.WriteLine(ruizyo(2, 100));
+
+
+            // 計測停止
+            sw.Stop();
+
+            // 結果表示
+            Console.WriteLine("■処理Bにかかった時間");
+            ts = sw.Elapsed;
+            Console.WriteLine($"　{ts}");
+            Console.WriteLine($"　{ts.Hours}時間 {ts.Minutes}分 {ts.Seconds}秒 {ts.Milliseconds}ミリ秒");
+            Console.WriteLine($"　{sw.ElapsedMilliseconds}ミリ秒");
 
         }
+
+        double ruizyo(int baseNum, int exponentNum)
+        {
+            if (exponentNum <= 0)
+            {
+                return 1;
+            }
+            
+            return baseNum * ruizyo(baseNum, exponentNum - 1);
+        }
+
+
     }
 }
