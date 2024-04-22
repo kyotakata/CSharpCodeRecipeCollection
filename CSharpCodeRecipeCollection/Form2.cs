@@ -180,6 +180,73 @@ namespace CSharpCodeRecipeCollection
             return baseNum * ruizyo(baseNum, exponentNum - 1);
         }
 
+        private void button8_Click(object sender, EventArgs e)
+        {
+            string input = "Stacey";
+            string result = SwapPosition(input);
+            Console.WriteLine("入れ替え後の文字列: " + result);
+        }
+        static string SwapCharacters(string s, int i, int j)
+        {
+            char[] charArray = s.ToCharArray();
+            char temp = charArray[i];
+            charArray[i] = charArray[j];
+            charArray[j] = temp;
+            return new string(charArray);
+        }
+        static string SwapPosition(string s, int index = 0)
+        {
+            // 基底条件: 文字列が空またはインデックスが文字列の長さを超えた場合
+            if (string.IsNullOrEmpty(s) || index >= s.Length - 1)
+                return s;
 
+            // インデックスが偶数の場合、次の文字と入れ替える
+            if (index % 2 == 0)
+            {
+                s = SwapCharacters(s, index, index + 1);
+            }
+
+            // 次のインデックスに再帰的に適用
+            return SwapPosition(s, index + 1);
+        }
+
+        private void button9_Click(object sender, EventArgs e)
+        {
+            var s = "aaabbb";
+            var ans = stringCompressionHelper(s, 0, s.Length, 0, ' ', string.Empty);
+            Console.WriteLine(ans);
+        }
+
+        public static string stringCompressionHelper(string s, int index, int length, int count, char sHolder, string sOut)
+        {
+            if (index >= length)
+            {
+                sOut += $"{count}";
+                return sOut;
+            }
+
+            if (index == 0)
+            {
+                sHolder = s[index];
+                sOut = sHolder.ToString();
+                count++;
+                return stringCompressionHelper(s, index + 1, length, count, sHolder, sOut);
+            }
+
+            if (sHolder == s[index])
+            {
+                count++;
+            }
+            else
+            {
+                sOut += $"{count}";
+                sHolder = s[index];
+                sOut += sHolder.ToString();
+                count = 0;
+                count++;
+            }
+
+            return stringCompressionHelper(s, index + 1, length, count, sHolder, sOut);
+        }
     }
 }
